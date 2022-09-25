@@ -189,3 +189,54 @@ def rental_car_cost(d):
         result -= 20
     return result
 ```
+
+## Kata: Jaden Casing Strings
+
+My answer (again like C):
+
+```python
+def to_jaden_case(string):
+    array = string.split()
+    for i, word in enumerate(array):
+        array[i] = word[0].upper() + word[1:len(word)].lower()
+        print(array[i])
+    return " ".join(array)
+```
+
+Again another python function that looks to be really useful: capitalize
+
+```python
+def to_jaden_case(string):
+    return ' '.join([x.capitalize() for x in string.split()])
+```
+
+I have realized sth. I tend to try to do things the way I know. I've done sth like that almost the whole of my life. And most of the time things work. The question is: Can things be easier? Can I achieve the same results making less effort and still learning? 
+
+I think the answer is yes. And as one interesting person once said: Pain is there but suffering is an option. I want to open my mind and begin to learn from others. Seeing further standing on the shoulders of giants. 
+
+## Kata: String to number and viceversa
+
+This will be short: *int(variable)* or *str(variable)*
+
+## Kata: Basic Mathematical Operations
+
+My not at all efficient but listish approach:
+
+```python
+def basic_op(operator, value1, value2):
+    op = ['+', '-', '*', '/']
+    ans = [value1 + value2,
+          value1 - value2,
+          value1 * value2,
+          value1 / value2]
+    return ans[op.index(operator)]
+```
+
+A really interesting function: *eval*
+
+```python
+def basic_op(operator, value1, value2):
+    return eval(f'{value1}{operator}{value2}')
+```
+
+Basically we run whatever is inside the function. That sounds great but... What happens if suddenly sb writes sth like: Erase the whole memory of the pc. Or... change passwords or whatever. That would be like a dangerous sudo power (linux mind :P) So! Great power comes with great responsibility.
