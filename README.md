@@ -8,6 +8,12 @@ Disclaimer: There won't be a lot of scripts. It will be more a loooong readme.
 
 [This](https://www.codewars.com/users/ariasAleia) is how far I am til now. 
 
+And super hiper mega important! Rememeber to think and ask yourself...
+
+* **How can this be easier?** (applies also for real life :P)
+* **Is there a more pythonic way?**
+
+**And to do that we can find a more simple way to achieve the same things. Think more like a computer. Think more in python. Use the tools you have and create magic.**
 
 ## Kata: Counting sheep...
 
@@ -240,3 +246,178 @@ def basic_op(operator, value1, value2):
 ```
 
 Basically we run whatever is inside the function. That sounds great but... What happens if suddenly sb writes sth like: Erase the whole memory of the pc. Or... change passwords or whatever. That would be like a dangerous sudo power (linux mind :P) So! Great power comes with great responsibility.
+
+
+## Kata: Regex validate PIN code
+
+A little bit more pythonic with *in*. But anyway there is a better solution...
+
+```python
+def validate_pin(pin):
+    if len(pin) == 4 or len(pin) == 6:
+        for digit in pin:
+            if not digit in "1234567890":
+                return False
+        return True        
+    return False
+```
+
+Like this:
+
+```python
+def validate_pin(pin):
+    return pin.isdigit() and len(pin) in (4, 6)
+```
+
+## Kata: Calculate BMI
+
+Remember that to calculate power we use ** . For example 3**2 = 9
+
+## Kata: Beginner - Lost Without a Map
+
+My approach:
+
+```python
+def maps(a):
+    b = []
+    for number in a:
+        b.append(number * 2)
+    return b
+```
+
+Faster and better:
+```python
+def maps(a):
+    return [x*2 for x in a]
+```
+
+## Kata: Are You Playing Banjo?
+
+```python
+def are_you_playing_banjo(name):
+    a = name.capitalize()[0]
+    if a == 'R': return name + " plays banjo"
+    return name + " does not play banjo"
+```
+
+That was not bad but... this is shorter
+
+```python
+def are_you_playing_banjo(name):
+    if name[0].upper() == 'R': return name + " plays banjo"
+    return name + " does not play banjo"
+```
+
+
+## Kata: Sum of two lowest positive integers
+
+```python
+def sum_two_smallest_numbers(numbers):
+    a = numbers.pop(numbers.index(min(numbers)))
+    return a + numbers.pop(numbers.index(min(numbers)))
+```
+
+But.. IF we organize then everything could be shorter but!!! Maybe it takes longer to sort all and maybe it is way easier to find the minimum value. So... It's all a tradeoff. But anyway this looks better:
+
+```python
+def sum_two_smallest_numbers(numbers):
+    return sum(sorted(numbers)[0:2])
+```
+
+
+## Kata: Mumbling
+
+Again.. My approach works and that's important
+
+```python
+def accum(s):
+    array = []
+    for i, letter in enumerate(s):
+        array.append(letter.lower()*(i+1))
+        array[i] = array[i].capitalize()
+    return "-".join(array)
+```
+
+But this is easier and I think it is also faster:
+```python
+def accum(s):
+    return '-'.join(c.upper() + c.lower() * i for i, c in enumerate(s))
+```
+And.. I think that the only thing that we are missing is asking us two questions:
+
+
+* **How can this be easier?**
+* **Is there a more pythonic way?**
+
+**And to do that we can find a more simple way to achieve the same things. Think more like a computer. Think more in python. Use the tools you have and create magic.**
+
+
+## Kata: Odd or Even?
+
+We are learning! Both solutions were great and we thought them for ourselves!
+
+More in a list:
+```python
+def oddOrEven(arr):
+    return ('even', 'odd')[sum(arr) % 2]
+```
+
+Shorter return with conditionals:
+```python
+def oddOrEven(arr):
+    return 'even' if sum(arr) % 2 == 0 else 'odd'
+```
+
+
+## Kata: Square sum
+
+Important! Well done. Every time you have a for loop. Try to turn it into sth shorter. Looks more elegant and looks more pythonic!
+
+At first we thought about sth like this:
+```python
+def square_sum(numbers):
+    ans = 0
+    for i in numbers:
+        ans += i**2
+    return ans
+```
+
+But it we see carefully we can turn it into a beautiful one line code:
+```python
+def square_num(numbers):
+    return sum([i**2 for i in numbers])
+```
+
+:D Well done :)
+
+## Kata: DNA
+
+And that's why it is much much much better to practice a lot after learning a little bit of theory than learning a lot of theory and practicing too little. Here to solve this, we knew that it was necessary (ok.. not mandatory) to use a dictionary.
+
+Here we are!
+
+```python
+def DNA_strand(dna):
+    letters = {
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
+        'G': 'C'
+    }
+    return "".join(letters.get(x) for x in dna)
+```
+
+And it works! Yes. But hey! We don't have to display the dictionary in a vertical way. We can also display it horizontally and we can use get or []. The advantage with get is that we can specify a default value in case we don't find the key. (We remembered all that thanks to [the beginner repo](https://github.com/ariasAleia/Learning_Python#dictionaries)). (Standing on the shoulders of giants (also valid when we ourselves are the giants))
+
+```python
+def DNA_strand(dna):
+    letters = {'A': 'T','T': 'A','C': 'G','G': 'C'
+    }
+    return "".join([letters[x] for x in dna])
+```
+
+
+Btw... We discovered a really nice [bioinformatics web page](https://rosalind.info/about/)
+
+
+TODO: List of interesting functions or tips or lessons learned. Like a small dropdown list
