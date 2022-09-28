@@ -419,5 +419,115 @@ def DNA_strand(dna):
 
 Btw... We discovered a really nice [bioinformatics web page](https://rosalind.info/about/)
 
+27.09.2022
+
+## Kata: Next perfect square
+
+Sth really interesting. Take care with isinstance(variable, type), if for example we have the sqrt of a number and it gives 14.0 then it is no more an integer. Better... take care with math.sqrt. And the function: variable.isinteger() is better to check if sth is an integer or not. That helps us even when it is a float type. For example when the float is 14.0 then it is the same as an integer: 14.
+
+My solution:
+
+```python
+import math
+def find_next_square(sq):
+    root = math.sqrt(sq)
+    print(root)
+    if root.is_integer():
+        return int((root + 1) ** 2)
+    return -1
+```
+
+But there is an even better solution! 
+
+What if we don't import anything. The sqrt is the same as the number to the power 0.5 and... to check if it's an integer if we have a float we can do simple take the number and operate module 1. With that we will get the decimal part. If that part is equal to zero then it is an integer, if not, it is a decimal number.
+
+```python
+def find_next_square(sq):
+    x = sq ** 0.5
+    return -1 if x % 1 else (x + 1) ** 2
+```
+
+## Kata: Calculate average
+
+It was pretty good. Just to take into account. We can compare directly with the array. If it's empty it would give 0. Same as len(array) but shorter
+
+Mine:
+
+```python
+def find_average(numbers):
+    return sum(numbers)/len(numbers) if len(numbers) else 0
+```
+
+A shorter one:
+
+```python
+def find_average(array):
+    return sum(array) / len(array) if array else 0
+```
+
+## Kata: Reversed Strings
+
+variable.sort() sorts the variable. That means that the variable itself is sorted. If it was a number, then it is sorted in ascending order. If we want it in descending order we can use: variable.sort(reverse = True). 
+
+On the other hand: sorted(variable) returns a list!!! with a content equal to the variable but sorted. 
+
+reversed(variable) just returns a list!!! with the content backwards.
+
+And slicing is a big topic. By now: string[start:stop:step]. We go from start to stop -1 and if step is not specified it is 1. 
+
+My solution:
+
+```python
+def solution(string):
+    return ''.join(reversed(string))
+```
+
+A solution with slicing:
+
+```python
+def solution(string):
+    return string[::-1]
+```
+
+## Kata: A needle in the haystack
+
+A solution: 
+
+```python
+def find_needle(haystack):
+    return f'found the needle at position {haystack.index("needle")}'
+```
+
+My solution:
+
+```python
+def find_needle(haystack):
+    return f"found the needle at position {haystack.index('needle')}"
+```
+
+Sth reaaaaaaally important! " " inside of  "" or ' ' inside of ' ' may cause troubles. Better always: '' inside " ". Or the opposite way: " " inside of ' '.
+
+
+## Kata: 
+
+```python
+def sum_mix(arr):
+    return sum(int(n) for n in arr)
+```
+Hey Aleja! There's no need to create an array there
+
+An interesting new topic:
+
+```python
+def sum_mix(arr):
+    return sum(map(int, arr))
+```
+
+Basically we apply a function to each one of the elements of an iterable (sth that can be iterated)
+
+**Map:** map(function to apply, iterable).
+
+It helps us not to need to create for loops.
+
 
 TODO: List of interesting functions or tips or lessons learned. Like a small dropdown list
