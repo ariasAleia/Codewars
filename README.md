@@ -530,4 +530,63 @@ Basically we apply a function to each one of the elements of an iterable (sth th
 It helps us not to need to create for loops.
 
 
-TODO: List of interesting functions or tips or lessons learned. Like a small dropdown list
+## Kata: Century from year
+
+My solution that works:
+
+```python
+def century(year):
+     return (year // 100) + 1 if year % 100 else year / 100
+```
+
+A better ine using arithmetic. Remember to think and ask yourself if sth can be done easier if we use math and arithmetic. They are playing in the same team with us.
+
+```python
+def century(year):
+    return (year + 99) // 100
+```
+
+
+## Kata: List Filtering
+
+My solution:
+
+```python
+def filter_list(l):
+    new_l = []
+    for x in l:
+        if isinstance(x,int):
+            new_l.append(x)
+    return new_l
+```
+
+Hey! We can use list comprehension also with conditionals! That's really cool!
+
+A better way:
+```python
+def filter_list(l):
+    return [x for x in l if isinstance(x, int)]
+```
+
+I like python :) And why is it better to use it in that way? Because of the people! There is a big community behind python (or more precisely: with Python) and those pythonic ways are ways in which the code runs faster!
+
+
+## Kata:
+
+Super important! Convert map in list. min() and max() functions do not work properly on maps!!! Take care with maps! **Turn them into lists!**
+
+Mine:
+
+```python
+def high_and_low(numbers):
+    s = list(map(int, numbers.split()))
+    return f"{max(s)} {min(s)}"
+```
+
+Other possible and also good way:
+```python
+def high_and_low(numbers):
+    s = [int(x) for x in numbers.split()]
+    return f"{max(s)} {min(s)}"
+
+```
