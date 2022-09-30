@@ -2,7 +2,7 @@
 
 So! Yes. What else should I say? I just want to play and feel the emotion of those green ticks. And also learn more of Python in the way. Here I will write some tips or clever answers. Main goal: solve the kata. Second main goal: learn how to solve it better. 
 
-Here we go! 
+Here we gooo! 
 
 Disclaimer: There won't be a lot of scripts. It will be more a loooong readme. 
 
