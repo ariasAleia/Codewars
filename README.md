@@ -8,7 +8,7 @@ Disclaimer: There won't be a lot of scripts. It will be more a loooong readme.
 
 [This](https://www.codewars.com/users/ariasAleia) is how far I am til now. 
 
-And super hiper mega important! Rememeber to think and ask yourself...
+And super hiper mega important! Remember to think and ask yourself...
 
 * **How can this be easier?** (applies also for real life :P)
 * **Is there a more pythonic way?**
@@ -589,4 +589,30 @@ def high_and_low(numbers):
     s = [int(x) for x in numbers.split()]
     return f"{max(s)} {min(s)}"
 
+```
+
+
+## Kata: $i^3$
+
+You can do it but you can let the flow come. Decide wisely when to use each tool
+## Kata: Are they the "same"?
+
+Hey!!!!!!!!
+Use the problem to your favor! Stop seeing the problem as a problem and use it to play in your team. Try and except! A really good aid!
+
+```python
+def comp(array1, array2):
+    try:
+        return sorted([i ** 2 for i in array1]) == sorted(array2)
+    except:
+        return False
+```
+
+## Kata: The 'if' function
+
+We can call other functions:
+
+```python
+def _if(bool, func1, func2):
+  func1() if bool else func2()
 ```
